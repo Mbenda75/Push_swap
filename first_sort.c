@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 15:50:22 by benmoham          #+#    #+#             */
-/*   Updated: 2021/12/15 19:53:00 by benmoham         ###   ########.fr       */
+/*   Updated: 2021/12/15 21:03:19 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ t_pile  *last_sort(t_pile *pile_a, t_pile *pile_b)
     size = len_pile(pile_a);
     while (size--)
     {
-        pile_b = push_b(pile_a, pile_b);
+        pile_b = push_a(pile_b, pile_a);
         pile_a = supprimer_nbrhead(pile_a);
     }
     return (pile_b);
@@ -107,7 +107,6 @@ t_pile    *push_lessmedian(t_pile *pile_a, t_pile *pile_b, int size)
     int med;
     int *tab = NULL;
     t_pile  *tmp;
-
     while(pile_a)
     {
         tmp = pile_a;
@@ -126,7 +125,31 @@ t_pile    *push_lessmedian(t_pile *pile_a, t_pile *pile_b, int size)
         pile_a = tmp;
         size = len_pile(pile_a);
     }
-    pile_b = max_sort_top(pile_b, pile_a);
+     while(pile_b)
+    {
+        size = len_pile(pile_b);
+        tmp = pile_b;
+        med = get_median(tmp, tab, size);
+        while (size)
+        {
+            if (tmp->nbr >= med)
+            {
+                pile_a = push_a(pile_a, tmp);
+                tmp = tmp->next;
+            }
+            else
+                tmp = rrotate_b(tmp);
+            size--; 
+        }
+        pile_b = tmp;
+    }
+    //print_list(pile_a);
+    //printf("NON------------------\n");
+ 
+    pile_b = max_sort_top(pile_a, pile_b);
+     //print_list(pile_b);
+  // printf("yes------------------\n");
     pile_a = last_sort(pile_b, pile_a);
-    return (pile_a);
+    //print_list(pile_a);
+    return (pile_b);
 }

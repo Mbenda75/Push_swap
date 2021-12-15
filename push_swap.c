@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 13:43:36 by benmoham          #+#    #+#             */
-/*   Updated: 2021/12/15 19:22:46 by benmoham         ###   ########.fr       */
+/*   Updated: 2021/12/15 20:46:03 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,14 @@ t_pile	*file_tab(char **av)
 	}
 	return (pile_a);
 }
-
+void	print_list(t_pile *pile_a)
+{
+	while (pile_a)
+	{
+		printf ("nb ==== %ld\n", pile_a->nbr);
+		pile_a = pile_a->next;
+	}
+}
 t_pile	*init(char **av)
 {
 	t_pile	*pile_a;
