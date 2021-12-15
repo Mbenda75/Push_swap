@@ -6,12 +6,12 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 13:47:33 by benmoham          #+#    #+#             */
-/*   Updated: 2021/11/22 13:47:43 by benmoham         ###   ########.fr       */
+/*   Updated: 2021/12/14 16:52:48 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
+
 static char	*ft_strnndup(const char *s1, int c)
 {
 	int		i;
