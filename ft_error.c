@@ -6,18 +6,18 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 12:36:08 by benmoham          #+#    #+#             */
-/*   Updated: 2021/12/17 17:52:58 by benmoham         ###   ########.fr       */
+/*   Updated: 2021/12/17 22:55:32 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_isdigit(char c)
+int	ft_isdigit(char s)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
+	if (s >= '0' && s <= '9')
 		return (0);
+	else
+		return (1);
 }
 
 int	white_space(char c)
@@ -43,7 +43,7 @@ void	check_str(char *str)
 			ft_putstr("Error\n");
 			exit(1);
 		}
-		if (!ft_isdigit(str[i]) && !white_space(str[i]) && str[i] != '-')
+		if (ft_isdigit(str[i]) == 1 && white_space(str[i]) && str[i] != '-')
 		{
 			ft_putstr("Error\n");
 			exit(1);

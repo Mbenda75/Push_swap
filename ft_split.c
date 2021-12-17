@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 13:47:33 by benmoham          #+#    #+#             */
-/*   Updated: 2021/12/17 19:43:07 by benmoham         ###   ########.fr       */
+/*   Updated: 2021/12/17 22:56:12 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static char	*ft_strnndup(const char *s1, int c)
 {
 	int		i;
 	char	*str;
-	
+
 	i = 0;
 	while (s1[i] && s1[i] != c)
 		i++;
@@ -35,8 +35,8 @@ static char	*ft_strnndup(const char *s1, int c)
 
 static int	ft_counting(const char *str, char c)
 {
-	int nb;
-	int i;
+	int	nb;
+	int	i;
 
 	i = 0;
 	nb = 0;
@@ -54,7 +54,7 @@ static int	ft_counting(const char *str, char c)
 	return (nb);
 }
 
-char		**ft_split(const char *str, char c)
+char	**ft_split(const char *str, char c)
 {
 	int		i;
 	int		k;

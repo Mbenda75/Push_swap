@@ -6,11 +6,24 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 13:43:36 by benmoham          #+#    #+#             */
-/*   Updated: 2021/12/17 19:19:39 by benmoham         ###   ########.fr       */
+/*   Updated: 2021/12/17 23:06:30 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	free_str(char **tab)
+{
+	int	line;
+
+	line = 0;
+	while (tab[line])
+	{
+		free(tab[line]);
+		line++;
+	}
+	free(tab);
+}
 
 t_pile	*file_tab(char **av)
 {
@@ -19,26 +32,25 @@ t_pile	*file_tab(char **av)
 	t_pile	*tmp;
 	t_pile	*pile_a;
 
-	tab = ft_split(av[1], ' ');	
+	tab = ft_split(av[1], ' ');
 	pile_a = NULL;
 	j = 0;
-	av = tab;
-	while (av[j])
+	while (tab[j])
 	{
-		check_str(av[j]);
+		check_str(tab[j]);
 		if (!pile_a)
 		{
-			pile_a = create_elem(ft_atol(av[j]));
+			pile_a = create_elem(ft_atol(tab[j]));
 			tmp = pile_a;
 		}
 		else
 		{
-			tmp->next = create_elem(ft_atol(av[j]));
+			tmp->next = create_elem(ft_atol(tab[j]));
 			tmp = tmp->next;
 		}
 		j++;
 	}
-	free(tab);
+	free_str(tab);
 	return (pile_a);
 }
 

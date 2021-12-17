@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 17:54:18 by benmoham          #+#    #+#             */
-/*   Updated: 2021/12/17 19:15:46 by benmoham         ###   ########.fr       */
+/*   Updated: 2021/12/17 22:02:47 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_pile		*rotate_b(t_pile *pile_b);
 t_pile		*file_tab(char **av);
 t_pile		*create_elem(int nbr);
 t_pile		*init(char **av);
+void		free_str(char **tab);
 
 /*----------------------ERROR-------------------------*/
 void    	check_doublon(t_pile *pile_a);
@@ -74,7 +75,7 @@ void		ft_putstr(char *s);
 void		ft_swap(long *a, long *b);
 void		ft_putnbr(int n);
 void		ft_putchar(char c);
-int			ft_isdigit(char c);
+int			ft_isdigit(char s);
 long		ft_atol(const char *str);
 char		**ft_split(const char *str, char c);
 int    		*tab_int(t_pile *pile_a, int size);

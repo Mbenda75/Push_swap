@@ -6,7 +6,7 @@
 #    By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/14 15:43:25 by benmoham          #+#    #+#              #
-#    Updated: 2021/12/17 19:06:38 by benmoham         ###   ########.fr        #
+#    Updated: 2021/12/17 23:13:02 by benmoham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ OBJS			= $(SRCS:.c=.o)
 
 NAME			= push_swap
 
-CFLAGS			= -Wall -Wextra -Werror -fsanitize=address -g
+CFLAGS			= -Wall -Wextra -Werror
 
 RM				= rm -f
 
