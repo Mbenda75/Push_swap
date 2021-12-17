@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 12:36:08 by benmoham          #+#    #+#             */
-/*   Updated: 2021/12/15 16:36:28 by benmoham         ###   ########.fr       */
+/*   Updated: 2021/12/17 17:52:58 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,20 @@ int	ft_isdigit(char c)
 		return (0);
 }
 
+int	white_space(char c)
+{
+	if (c != '\f' && c != '\v' && c != '\n'
+		&& c != '\r' && c != ' ' && c != '\t')
+		return (1);
+	else
+		return (0);
+}
+
 void	check_str(char *str)
 {
-	int	i;
-	long stock;
-	
+	int		i;
+	long	stock;
+
 	i = 0;
 	while (str[i])
 	{
@@ -34,8 +43,7 @@ void	check_str(char *str)
 			ft_putstr("Error\n");
 			exit(1);
 		}
-		if (!ft_isdigit(str[i]) && str[i] != '\f' && str[i] != '\t' && str[i] != '\v'
-				&& str[i] != '\n' && str[i] != '\r' && str[i] != ' ' && str[i] != '-')
+		if (!ft_isdigit(str[i]) && !white_space(str[i]) && str[i] != '-')
 		{
 			ft_putstr("Error\n");
 			exit(1);
@@ -46,7 +54,7 @@ void	check_str(char *str)
 
 void	check_doublon(t_pile *pile_a)
 {
-	int	stocknbr;
+	int		stocknbr;
 	t_pile	*start;
 	t_pile	*elemtwo;
 	t_pile	*compare;

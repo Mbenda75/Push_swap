@@ -5,38 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/09 13:50:24 by benmoham          #+#    #+#             */
-/*   Updated: 2021/12/14 19:11:14 by benmoham         ###   ########.fr       */
+/*   Created: 2021/12/17 18:36:10 by benmoham          #+#    #+#             */
+/*   Updated: 2021/12/17 18:48:01 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_putchar(char c)
+t_pile	*free_stack(t_pile *pile_a)
 {
-	write(1, &c, 1);
-}
-void	ft_putstr(char *s)
-{
-	int	i;
+	t_pile	*nbr;
 
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i])
+	while (pile_a)
 	{
-		write(1, &s[i], 1);
-		i++;
+		nbr = pile_a;
+		pile_a = pile_a->next;
+		free(nbr);
 	}
-}
-
-void	ft_swap(long *a, long *b)
-{
-	long c;
-
-	c = *a;
-	*a = *b;
-	*b = c;
+	return (pile_a);
 }
 
 t_pile	*create_elem(int nbr)
@@ -63,6 +49,19 @@ t_pile	*ft_list_push_back(t_pile *pile_a, int nbr)
 	return (list);
 }
 
+t_pile	*ft_pile_push_front(t_pile *begin, int data)
+{
+	t_pile	*push;
+
+	if (begin)
+	{
+		push = create_elem(data);
+		push->next = begin;
+		begin = push;
+	}
+	return (push);
+}
+
 t_pile	*supprimer_nbrhead(t_pile *pile_a)
 {
 	t_pile	*new_pile;
@@ -76,36 +75,5 @@ t_pile	*supprimer_nbrhead(t_pile *pile_a)
 	else
 	{
 		return (NULL);
-	}
-}
-
-t_pile	*ajouter_nbrhead(t_pile *liste, int valeur)
-{
-	t_pile	*new_nbr;
-
-	new_nbr = malloc(sizeof(t_pile));
-	new_nbr->nbr = valeur;
-	new_nbr->next = liste;
-	return (new_nbr);
-}
-
-void	ft_putnbr(int n)
-{
-	long	nbr;
-
-	nbr = n;
-	if (nbr < 0)
-	{
-		ft_putchar('-');
-		nbr = nbr * (-1);
-	}
-	if (nbr > 9)
-	{
-		ft_putnbr(nbr / 10);
-		ft_putchar((nbr % 10) + 48);
-	}
-	if (nbr <= 9)
-	{
-		ft_putchar((nbr % 10) + 48);
 	}
 }

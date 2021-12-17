@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 13:47:33 by benmoham          #+#    #+#             */
-/*   Updated: 2021/12/14 16:52:48 by benmoham         ###   ########.fr       */
+/*   Updated: 2021/12/17 19:43:07 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ static char	*ft_strnndup(const char *s1, int c)
 {
 	int		i;
 	char	*str;
-
+	
 	i = 0;
 	while (s1[i] && s1[i] != c)
 		i++;
-	if (!(str = (char *)malloc(sizeof(char) * ++i)))
+	str = (char *)malloc(sizeof(char) * ++i);
+	if (!str)
 		return (0);
 	i = 0;
 	while (s1[i] && s1[i] != c)
@@ -61,7 +62,8 @@ char		**ft_split(const char *str, char c)
 
 	if (!str)
 		return (NULL);
-	if (!(tab = (char **)malloc(sizeof(char *) * (ft_counting(str, c) + 1))))
+	tab = (char **)malloc(sizeof(char *) * (ft_counting(str, c) + 1));
+	if (!tab)
 		return (0);
 	i = 0;
 	k = 0;
