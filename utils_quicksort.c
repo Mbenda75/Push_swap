@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 18:49:00 by benmoham          #+#    #+#             */
-/*   Updated: 2021/12/17 18:59:55 by benmoham         ###   ########.fr       */
+/*   Updated: 2021/12/18 17:02:21 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,22 +52,22 @@ int	*value_sort(int *tab, int len)
 	return (tab);
 }
 
-t_pile	*max_sort_top2(t_pile *pile_b, int posmin, int size)
+t_pile	*max_sort_top2(t_pile *pile_b, int posmax, int size)
 {
-	if (posmin <= size / 2)
+	if (posmax <= size / 2)
 	{
-		while (posmin && posmin != 1)
+		while (posmax && posmax != 1)
 		{
 			pile_b = rotate_b(pile_b);
-			posmin--;
+			posmax--;
 		}
 	}
-	else if (posmin != 1)
+	else if (posmax != 1)
 	{
-		while (posmin <= size)
+		while (posmax <= size)
 		{
 			pile_b = rrotate_b(pile_b);
-			posmin++;
+			posmax++;
 		}
 	}
 	return (pile_b);
@@ -75,14 +75,14 @@ t_pile	*max_sort_top2(t_pile *pile_b, int posmin, int size)
 
 t_pile	*max_sort_top(t_pile *pile_a, t_pile *pile_b)
 {
-	int	posmin;
+	int	posmax;
 	int	size;
 
 	while (pile_b)
 	{
 		size = len_pile(pile_b);
-		posmin = search_posmax(pile_b);
-		pile_b = max_sort_top2(pile_b, posmin, size);
+		posmax = search_posmax(pile_b);
+		pile_b = max_sort_top2(pile_b, posmax, size);
 		pile_a = push_a(pile_a, pile_b);
 		pile_b = supprimer_nbrhead(pile_b);
 	}

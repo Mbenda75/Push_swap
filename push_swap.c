@@ -6,7 +6,7 @@
 /*   By: benmoham <benmoham@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 13:43:36 by benmoham          #+#    #+#             */
-/*   Updated: 2021/12/17 23:06:30 by benmoham         ###   ########.fr       */
+/*   Updated: 2021/12/18 17:00:03 by benmoham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	main(int ac, char **av)
 
 	pile_a = NULL;
 	pile_b = NULL;
-	if (ac <= 1)
+	if (ac <= 1 || ac > 2)
 		return (0);
 	pile_a = init(av);
 	if (pile_a)
